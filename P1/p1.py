@@ -50,7 +50,7 @@ print()
 print('select dept_id, avg(salary) from s_emp group by dept_id order by dept_id;')
 
 #print([[i[0], l] for i in s_dept[1::](lambda l: round(sum(l) / len(l), 2))(map(float,[ e[7] for e in s_emp[1::] if e[9] == i[0] ]))])
-for department in [ i[0] for i in s_dept[1::] ]: print ([department, (lambda l: round(sum(l) / len(l), 2))(map(float,[ e[7] for e in s_emp[1::] if e[9] == department]))])
+for department in sorted({ i[9] for i in s_emp[1::] }, key=lambda x:x): print ([department, (lambda l: round(sum(l) / len(l), 2))(map(float,[ e[7] for e in s_emp[1::] if e[9] == department]))])
 
 
 print()
